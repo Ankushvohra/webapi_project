@@ -1,0 +1,25 @@
+﻿
+<div class="row">
+    <div class="alert text-light text-center" style="background-color:#53ada6;">
+        <h2 class="">National Park List</h2>
+    </div>
+</div>
+<div class="container rounded border m-2 p-2">
+    <table id="tblData" class="table table-bordered table-striped table-active">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>State</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="offset-5 col-2">
+    <a asp-action="Upsert" class="btn btn-success  text-light" style="background-color:#53ada6;">
+        <i class="fas fa-plus"></i>&nbsp;New National Park
+    </a>
+</div>
+@section scripts{
+    <script src="~/js/Nationalpark.js"></script>
+}

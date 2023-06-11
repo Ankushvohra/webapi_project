@@ -1,0 +1,26 @@
+﻿<div class="row">
+    <div class="alert text-light text-center" style="background-color:#53ada6;">
+        <h2 class="">Trail List</h2>
+    </div>
+</div>
+<div class="container rounded border m-2 p-2">
+    <table id="tblData" class="table table-bordered table-striped table-active">
+        <thead>
+            <tr>
+                <th>National Park</th>
+                <th>Trail Name</th>
+                <th>Distance</th>
+                <th>Elevation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="offset-5 col-2">
+    <a asp-action="Upsert" class="btn btn-success  text-light" style="background-color:#53ada6;">
+        <i class="fas fa-plus"></i>&nbsp;New National Park
+    </a>
+</div>
+@section scripts{
+    <script src="~/js/trail.js"></script>
+}

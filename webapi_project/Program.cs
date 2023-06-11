@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<InationalParkRepository, NationalParkRepository>();
+builder.Services.AddScoped<Itrail, trailrepo>();
 builder.Services.AddAutoMapper(typeof(MappingProfiler));
 var app = builder.Build();
 

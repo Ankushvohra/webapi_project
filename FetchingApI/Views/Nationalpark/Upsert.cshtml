@@ -1,0 +1,98 @@
+﻿@model FetchingApI.Models.NationalPark
+@{
+    ViewData["Title"] = "Upsert";
+    var title = Model.Id != 0 ? "Edit Park" : "New Park";
+    var saveupdate = Model.Id != 0 ? "Update" : "Save";
+}
+<div class="alert" style="background-color:#53ada6;">
+    <h2 class="text-center">@title</h2>
+</div>
+<form method="post" enctype="multipart/form-data">
+    @if(Model.Id != 0)
+    {
+        <input type="hidden" asp-for="@Model.Id"/>
+
+    }
+    <div class="row bordepy-xxl-5 shadow">
+        <div class="p-2 m-2">
+            <div class="col-1">
+                <a asp-action="Index" class="btn btn form-control"><i class="fa fa-arrow-left" aria-hidden="true" style="font-size:20px"></i></a>
+            </div>
+
+            <div class="">
+                <div class="form-group row m-2 p-2">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        <div class="">
+            <div class="form-group row m-2 p-2">
+                <div class="col-4">
+                    <label asp-for="State"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="State" class="form-control" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="form-group row m-2 p-2">
+                <div class="col-4">
+                    <label asp-for="Picture"></label>
+                </div>
+                <div class="col-4">
+                    <input type="file" name="files" id="np-image" asp-for="Picture" multiple class=""/>
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="form-group row m-2 p-2">
+                <div class="col-4">
+                    <label asp-for="Established"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Established" class="form-control" />
+                    <span asp-validation-for="Established" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="form-group row m-2 p-2">
+                <div class="col-4">
+                    <label asp-for="Created"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Created" class="form-control" />
+                    <span asp-validation-for="Created" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-2 m-2">
+            <div class="">
+                <button type ="submit" class="btn btn-success">
+                    @saveupdate
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(function () {
+            $("#datepickers").datepicker({
+                changeMonth: true,
+                changeYear: true
+            })
+        })
+    </script>
+}

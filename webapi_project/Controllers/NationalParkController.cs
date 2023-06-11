@@ -24,7 +24,7 @@ namespace webapi_project.Controllers
             var NationalParklistdto = _nationalParkRepository.GetNationalParks().ToList().Select(_mapper.Map<NationalPark,NationalParkDTO>);
             return Ok(NationalParklistdto);
         }
-        [HttpGet("{nationalParkId:int}")]
+        [HttpGet("{NationalParkid:int}"/*, Name = "GetNationalPark*/)]
         public IActionResult GetNationalPark(int nationalParkId)
         {
             var nattionalpark = _nationalParkRepository.GetNationalPark(nationalParkId);
@@ -50,6 +50,7 @@ namespace webapi_project.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
             return Ok();
+           // return CreatedAtRoute("GetNationalPark", new { nationalParkId=nationalPark.Id },nationalPark);
         }
         [HttpPut]
         public IActionResult UpdateNationalPark([FromBody] NationalParkDTO nationalParkDTO)
@@ -64,7 +65,7 @@ namespace webapi_project.Controllers
             }
             return NoContent();
         }
-        [HttpDelete("{nationalParkId:int}")]
+        [HttpDelete("{NationalParkid:int}")]
         public IActionResult DeleteNationPark(int nationalParkId)
         {
             if(! _nationalParkRepository.NationalParkExist(nationalParkId))
